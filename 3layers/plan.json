@@ -1,0 +1,170 @@
+{
+  "format_version": "1.1",
+  "terraform_version": "1.1.0-dev",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "null_resource.level1",
+          "mode": "managed",
+          "type": "null_resource",
+          "name": "level1",
+          "provider_name": "registry.terraform.io/hashicorp/null",
+          "schema_version": 0,
+          "values": { "triggers": null },
+          "sensitive_values": {}
+        }
+      ],
+      "child_modules": [
+        {
+          "resources": [
+            {
+              "address": "module.foo.null_resource.level2",
+              "mode": "managed",
+              "type": "null_resource",
+              "name": "level2",
+              "provider_name": "registry.terraform.io/hashicorp/null",
+              "schema_version": 0,
+              "values": { "triggers": null },
+              "sensitive_values": {}
+            }
+          ],
+          "address": "module.foo",
+          "child_modules": [
+            {
+              "resources": [
+                {
+                  "address": "module.foo.module.bar.null_resource.level3",
+                  "mode": "managed",
+                  "type": "null_resource",
+                  "name": "level3",
+                  "provider_name": "registry.terraform.io/hashicorp/null",
+                  "schema_version": 0,
+                  "values": { "triggers": null },
+                  "sensitive_values": {}
+                }
+              ],
+              "address": "module.foo.module.bar"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "module.foo.module.bar.null_resource.level3",
+      "module_address": "module.foo.module.bar",
+      "mode": "managed",
+      "type": "null_resource",
+      "name": "level3",
+      "provider_name": "registry.terraform.io/hashicorp/null",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": { "triggers": null },
+        "after_unknown": { "id": true },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "module.foo.null_resource.level2",
+      "module_address": "module.foo",
+      "mode": "managed",
+      "type": "null_resource",
+      "name": "level2",
+      "provider_name": "registry.terraform.io/hashicorp/null",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": { "triggers": null },
+        "after_unknown": { "id": true },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "null_resource.level1",
+      "mode": "managed",
+      "type": "null_resource",
+      "name": "level1",
+      "provider_name": "registry.terraform.io/hashicorp/null",
+      "change": {
+        "actions": ["create"],
+        "before": null,
+        "after": { "triggers": null },
+        "after_unknown": { "id": true },
+        "before_sensitive": false,
+        "after_sensitive": {}
+      }
+    }
+  ],
+  "configuration": {
+    "provider_config": {
+      "module.foo.module.bar:null": {
+        "name": "null",
+        "full_name": "registry.terraform.io/hashicorp/null",
+        "version_constraint": "3.1.0",
+        "module_address": "module.foo.module.bar"
+      },
+      "null": {
+        "name": "null",
+        "full_name": "registry.terraform.io/hashicorp/null",
+        "version_constraint": "3.1.0"
+      },
+      "null.second": {
+        "name": "null",
+        "full_name": "registry.terraform.io/hashicorp/null",
+        "alias": "second",
+        "version_constraint": "3.1.0"
+      }
+    },
+    "root_module": {
+      "resources": [
+        {
+          "address": "null_resource.level1",
+          "mode": "managed",
+          "type": "null_resource",
+          "name": "level1",
+          "provider_config_key": "null.second",
+          "schema_version": 0
+        }
+      ],
+      "module_calls": {
+        "foo": {
+          "source": "./modules/a",
+          "module": {
+            "resources": [
+              {
+                "address": "null_resource.level2",
+                "mode": "managed",
+                "type": "null_resource",
+                "name": "level2",
+                "provider_config_key": "null.second",
+                "schema_version": 0
+              }
+            ],
+            "module_calls": {
+              "bar": {
+                "source": "../b",
+                "module": {
+                  "resources": [
+                    {
+                      "address": "null_resource.level3",
+                      "mode": "managed",
+                      "type": "null_resource",
+                      "name": "level3",
+                      "provider_config_key": "module.foo.module.bar:null",
+                      "schema_version": 0
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
