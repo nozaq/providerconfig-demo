@@ -1,0 +1,432 @@
+{
+  "format_version": "1.1",
+  "terraform_version": "1.1.0-dev",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "null_resource.none",
+          "mode": "managed",
+          "type": "null_resource",
+          "name": "none",
+          "provider_name": "registry.terraform.io/hashicorp/null",
+          "schema_version": 0,
+          "values": {
+            "triggers": {
+              "aaa": "bbbbb"
+            }
+          },
+          "sensitive_values": {
+            "triggers": {}
+          }
+        }
+      ],
+      "child_modules": [
+        {
+          "resources": [
+            {
+              "address": "module.child.null_resource.none",
+              "mode": "managed",
+              "type": "null_resource",
+              "name": "none",
+              "provider_name": "registry.terraform.io/hashicorp/null",
+              "schema_version": 0,
+              "values": {
+                "triggers": {
+                  "aaa": "bbbbb"
+                }
+              },
+              "sensitive_values": {
+                "triggers": {}
+              }
+            }
+          ],
+          "address": "module.child",
+          "child_modules": [
+            {
+              "resources": [
+                {
+                  "address": "module.child.module.grandchild.null_resource.none",
+                  "mode": "managed",
+                  "type": "null_resource",
+                  "name": "none",
+                  "provider_name": "registry.terraform.io/hashicorp/null",
+                  "schema_version": 0,
+                  "values": {
+                    "triggers": {
+                      "aaa": "bbbbb"
+                    }
+                  },
+                  "sensitive_values": {
+                    "triggers": {}
+                  }
+                }
+              ],
+              "address": "module.child.module.grandchild"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "module.child.module.grandchild.null_resource.none",
+      "module_address": "module.child.module.grandchild",
+      "mode": "managed",
+      "type": "null_resource",
+      "name": "none",
+      "provider_name": "registry.terraform.io/hashicorp/null",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "triggers": {
+            "aaa": "bbbbb"
+          }
+        },
+        "after_unknown": {
+          "id": true,
+          "triggers": {}
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "triggers": {}
+        }
+      }
+    },
+    {
+      "address": "module.child.null_resource.none",
+      "module_address": "module.child",
+      "mode": "managed",
+      "type": "null_resource",
+      "name": "none",
+      "provider_name": "registry.terraform.io/hashicorp/null",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "triggers": {
+            "aaa": "bbbbb"
+          }
+        },
+        "after_unknown": {
+          "id": true,
+          "triggers": {}
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "triggers": {}
+        }
+      }
+    },
+    {
+      "address": "null_resource.none",
+      "mode": "managed",
+      "type": "null_resource",
+      "name": "none",
+      "provider_name": "registry.terraform.io/hashicorp/null",
+      "change": {
+        "actions": [
+          "create"
+        ],
+        "before": null,
+        "after": {
+          "triggers": {
+            "aaa": "bbbbb"
+          }
+        },
+        "after_unknown": {
+          "id": true,
+          "triggers": {}
+        },
+        "before_sensitive": false,
+        "after_sensitive": {
+          "triggers": {}
+        }
+      }
+    }
+  ],
+  "prior_state": {
+    "format_version": "1.0",
+    "terraform_version": "1.1.0",
+    "values": {
+      "root_module": {
+        "resources": [
+          {
+            "address": "data.consul_keys.kv",
+            "mode": "data",
+            "type": "consul_keys",
+            "name": "kv",
+            "provider_name": "registry.terraform.io/hashicorp/consul",
+            "schema_version": 0,
+            "values": {
+              "datacenter": "dc1",
+              "id": "-",
+              "key": [
+                {
+                  "default": "",
+                  "name": "aaa",
+                  "path": "aaa"
+                }
+              ],
+              "namespace": null,
+              "token": null,
+              "var": {
+                "aaa": "bbbbb"
+              }
+            },
+            "sensitive_values": {
+              "key": [
+                {}
+              ],
+              "var": {}
+            }
+          }
+        ],
+        "child_modules": [
+          {
+            "resources": [
+              {
+                "address": "module.child.data.consul_keys.kv",
+                "mode": "data",
+                "type": "consul_keys",
+                "name": "kv",
+                "provider_name": "registry.terraform.io/hashicorp/consul",
+                "schema_version": 0,
+                "values": {
+                  "datacenter": "dc1",
+                  "id": "-",
+                  "key": [
+                    {
+                      "default": "",
+                      "name": "aaa",
+                      "path": "aaa"
+                    }
+                  ],
+                  "namespace": null,
+                  "token": null,
+                  "var": {
+                    "aaa": "bbbbb"
+                  }
+                },
+                "sensitive_values": {
+                  "key": [
+                    {}
+                  ],
+                  "var": {}
+                }
+              }
+            ],
+            "address": "module.child",
+            "child_modules": [
+              {
+                "resources": [
+                  {
+                    "address": "module.child.module.grandchild.data.consul_keys.kv",
+                    "mode": "data",
+                    "type": "consul_keys",
+                    "name": "kv",
+                    "provider_name": "registry.terraform.io/hashicorp/consul",
+                    "schema_version": 0,
+                    "values": {
+                      "datacenter": "dc1",
+                      "id": "-",
+                      "key": [
+                        {
+                          "default": "",
+                          "name": "aaa",
+                          "path": "aaa"
+                        }
+                      ],
+                      "namespace": null,
+                      "token": null,
+                      "var": {
+                        "aaa": "bbbbb"
+                      }
+                    },
+                    "sensitive_values": {
+                      "key": [
+                        {}
+                      ],
+                      "var": {}
+                    }
+                  }
+                ],
+                "address": "module.child.module.grandchild"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "configuration": {
+    "provider_config": {
+      "consul": {
+        "name": "consul",
+        "full_name": "registry.terraform.io/hashicorp/consul",
+        "version_constraint": "2.14.0",
+        "expressions": {
+          "address": {
+            "constant_value": "localhost:8500"
+          }
+        }
+      },
+      "consul.demo": {
+        "name": "consul",
+        "full_name": "registry.terraform.io/hashicorp/consul",
+        "alias": "demo",
+        "version_constraint": "2.14.0",
+        "expressions": {
+          "address": {
+            "constant_value": "demo.consul.io:80"
+          }
+        }
+      },
+      "module.child.module.grandchild:consul": {
+        "name": "consul",
+        "full_name": "registry.terraform.io/hashicorp/consul",
+        "version_constraint": "2.14.0",
+        "module_address": "module.child.module.grandchild"
+      }
+    },
+    "root_module": {
+      "resources": [
+        {
+          "address": "null_resource.none",
+          "mode": "managed",
+          "type": "null_resource",
+          "name": "none",
+          "provider_config_key": "null",
+          "expressions": {
+            "triggers": {
+              "references": [
+                "data.consul_keys.kv.var.aaa",
+                "data.consul_keys.kv.var",
+                "data.consul_keys.kv"
+              ]
+            }
+          },
+          "schema_version": 0
+        },
+        {
+          "address": "data.consul_keys.kv",
+          "mode": "data",
+          "type": "consul_keys",
+          "name": "kv",
+          "provider_config_key": "consul.demo",
+          "expressions": {
+            "key": [
+              {
+                "name": {
+                  "constant_value": "aaa"
+                },
+                "path": {
+                  "constant_value": "aaa"
+                }
+              }
+            ]
+          },
+          "schema_version": 0
+        }
+      ],
+      "module_calls": {
+        "child": {
+          "source": "./child",
+          "module": {
+            "resources": [
+              {
+                "address": "null_resource.none",
+                "mode": "managed",
+                "type": "null_resource",
+                "name": "none",
+                "provider_config_key": "module.child:null",
+                "expressions": {
+                  "triggers": {
+                    "references": [
+                      "data.consul_keys.kv.var.aaa",
+                      "data.consul_keys.kv.var",
+                      "data.consul_keys.kv"
+                    ]
+                  }
+                },
+                "schema_version": 0
+              },
+              {
+                "address": "data.consul_keys.kv",
+                "mode": "data",
+                "type": "consul_keys",
+                "name": "kv",
+                "provider_config_key": "consul.demo",
+                "expressions": {
+                  "key": [
+                    {
+                      "name": {
+                        "constant_value": "aaa"
+                      },
+                      "path": {
+                        "constant_value": "aaa"
+                      }
+                    }
+                  ]
+                },
+                "schema_version": 0
+              }
+            ],
+            "module_calls": {
+              "grandchild": {
+                "source": "../grandchild",
+                "module": {
+                  "resources": [
+                    {
+                      "address": "null_resource.none",
+                      "mode": "managed",
+                      "type": "null_resource",
+                      "name": "none",
+                      "provider_config_key": "module.child.module.grandchild:null",
+                      "expressions": {
+                        "triggers": {
+                          "references": [
+                            "data.consul_keys.kv.var.aaa",
+                            "data.consul_keys.kv.var",
+                            "data.consul_keys.kv"
+                          ]
+                        }
+                      },
+                      "schema_version": 0
+                    },
+                    {
+                      "address": "data.consul_keys.kv",
+                      "mode": "data",
+                      "type": "consul_keys",
+                      "name": "kv",
+                      "provider_config_key": "module.child.module.grandchild:consul",
+                      "expressions": {
+                        "key": [
+                          {
+                            "name": {
+                              "constant_value": "aaa"
+                            },
+                            "path": {
+                              "constant_value": "aaa"
+                            }
+                          }
+                        ]
+                      },
+                      "schema_version": 0
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
