@@ -1,0 +1,145 @@
+{
+  "format_version": "1.1",
+  "terraform_version": "1.1.0-dev",
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "address": "null_resource.none",
+          "mode": "managed",
+          "type": "null_resource",
+          "name": "none",
+          "provider_name": "registry.terraform.io/hashicorp/null",
+          "schema_version": 0,
+          "values": { "id": "2187087240527077854", "triggers": null },
+          "sensitive_values": {}
+        }
+      ],
+      "child_modules": [
+        {
+          "resources": [
+            {
+              "address": "module.child.null_resource.none",
+              "mode": "managed",
+              "type": "null_resource",
+              "name": "none",
+              "provider_name": "registry.terraform.io/nozaq/null",
+              "schema_version": 0,
+              "values": { "id": "2187087240527077854", "triggers": null },
+              "sensitive_values": {}
+            }
+          ],
+          "address": "module.child"
+        }
+      ]
+    }
+  },
+  "resource_changes": [
+    {
+      "address": "module.child.null_resource.none",
+      "module_address": "module.child",
+      "mode": "managed",
+      "type": "null_resource",
+      "name": "none",
+      "provider_name": "registry.terraform.io/nozaq/null",
+      "change": {
+        "actions": ["no-op"],
+        "before": { "id": "2187087240527077854", "triggers": null },
+        "after": { "id": "2187087240527077854", "triggers": null },
+        "after_unknown": {},
+        "before_sensitive": {},
+        "after_sensitive": {}
+      }
+    },
+    {
+      "address": "null_resource.none",
+      "mode": "managed",
+      "type": "null_resource",
+      "name": "none",
+      "provider_name": "registry.terraform.io/hashicorp/null",
+      "change": {
+        "actions": ["no-op"],
+        "before": { "id": "2187087240527077854", "triggers": null },
+        "after": { "id": "2187087240527077854", "triggers": null },
+        "after_unknown": {},
+        "before_sensitive": {},
+        "after_sensitive": {}
+      }
+    }
+  ],
+  "prior_state": {
+    "format_version": "1.0",
+    "terraform_version": "1.1.0",
+    "values": {
+      "root_module": {
+        "resources": [
+          {
+            "address": "null_resource.none",
+            "mode": "managed",
+            "type": "null_resource",
+            "name": "none",
+            "provider_name": "registry.terraform.io/hashicorp/null",
+            "schema_version": 0,
+            "values": { "id": "2187087240527077854", "triggers": null },
+            "sensitive_values": {}
+          }
+        ],
+        "child_modules": [
+          {
+            "resources": [
+              {
+                "address": "module.child.null_resource.none",
+                "mode": "managed",
+                "type": "null_resource",
+                "name": "none",
+                "provider_name": "registry.terraform.io/nozaq/null",
+                "schema_version": 0,
+                "values": { "id": "2187087240527077854", "triggers": null },
+                "sensitive_values": {}
+              }
+            ],
+            "address": "module.child"
+          }
+        ]
+      }
+    }
+  },
+  "configuration": {
+    "provider_config": {
+      "null": {
+        "name": "null",
+        "full_name": "registry.terraform.io/hashicorp/null",
+        "version_constraint": "3.1.0"
+      }
+    },
+    "root_module": {
+      "resources": [
+        {
+          "address": "null_resource.none",
+          "mode": "managed",
+          "type": "null_resource",
+          "name": "none",
+          "provider_config_key": "null",
+          "schema_version": 0
+        }
+      ],
+      "module_calls": {
+        "child": {
+          "source": "./child",
+          "module": {
+            "resources": [
+              {
+                "address": "null_resource.none",
+                "mode": "managed",
+                "type": "null_resource",
+                "name": "none",
+                "provider_config_key": "null",
+                "schema_version": 0
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
